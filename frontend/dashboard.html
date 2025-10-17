@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Tontine Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="assets/images/logo.png" alt="Tontine Pro" class="logo">
+            <span>Tontine Pro</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-link active">
+                <i class="icon">📊</i> Tableau de Bord
+            </a>
+            <a href="tontines.html" class="nav-link">
+                <i class="icon">👥</i> Mes Tontines
+            </a>
+            <a href="profile.html" class="nav-link">
+                <i class="icon">👤</i> Mon Profil
+            </a>
+        </div>
+
+        <div class="nav-user">
+            <div class="user-menu">
+                <span id="userName">Chargement...</span>
+                <div class="user-dropdown">
+                    <a href="profile.html" class="dropdown-item">Mon Profil</a>
+                    <a href="settings.html" class="dropdown-item">Paramètres</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" id="logoutBtn" class="dropdown-item">Déconnexion</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="dashboard">
+        <div class="container">
+            <!-- En-tête -->
+            <header class="dashboard-header">
+                <h1>Tableau de Bord</h1>
+                <p id="welcomeMessage">Bienvenue sur votre espace personnel</p>
+            </header>
+
+            <!-- Cartes de statistiques -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon primary">
+                        <i>👥</i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalTontines">0</h3>
+                        <p>Tontines actives</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i>💰</i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalContributions">0 FCFA</h3>
+                        <p>Total cotisé</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card">
+                        <div class="stat-icon warning">
+                            <i>📅</i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="pendingRounds">0</h3>
+                            <p>Rounds en attente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card">
+                        <div class="stat-icon info">
+                            <i>🤝</i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalMembers">0</h3>
+                            <p>Membres totaux</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grille principale -->
+            <div class="dashboard-grid">
+                <!-- Tontines récentes -->
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Mes Tontines Récentes</h2>
+                        <a href="tontines.html" class="btn btn-outline">Voir tout</a>
+                    </div>
+                    <div class="section-content">
+                        <div id="recentTontines" class="tontines-list">
+                            <div class="loading">Chargement des tontines...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Prochaines échéances -->
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Prochaines Échéances</h2>
+                    </div>
+                    <div class="section-content">
+                        <div id="upcomingRounds" class="rounds-list">
+                            <div class="loading">Chargement des échéances...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Activité récente -->
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Activité Récente</h2>
+                    </div>
+                    <div class="section-content">
+                        <div id="recentActivity" class="activity-list">
+                            <div class="loading">Chargement de l'activité...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Actions rapides -->
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Actions Rapides</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="quick-actions">
+                            <a href="tontine-create.html" class="quick-action">
+                                <div class="action-icon primary">
+                                    <i>➕</i>
+                                </div>
+                                <span>Créer une tontine</span>
+                            </a>
+                            <a href="tontines.html" class="quick-action">
+                                <div class="action-icon success">
+                                    <i>👥</i>
+                                </div>
+                                <span>Rejoindre une tontine</span>
+                            </a>
+                            <a href="profile.html" class="quick-action">
+                                <div class="action-icon warning">
+                                    <i>⚙️</i>
+                                </div>
+                                <span>Mon profil</span>
+                            </a>
+                            <a href="#" class="quick-action" id="refreshData">
+                                <div class="action-icon info">
+                                    <i>🔄</i>
+                                </div>
+                                <span>Actualiser</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Message de notification -->
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

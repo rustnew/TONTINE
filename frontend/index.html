@@ -1,11 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TONTINE</title>
+    <title>TontinePro - Gestion de Tontines</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <style>
+        .landing-page {
+            min-height: 100vh;
+            background: var(--orange-yellow-gradient);
+        }
+        
+        .landing-header {
+            padding: var(--spacing-lg) 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .landing-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .landing-hero {
+            text-align: center;
+            padding: var(--spacing-2xl) var(--spacing-md);
+            color: var(--text-light);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-2xl);
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="landing-page">
+    <header class="landing-header">
+        <nav class="landing-nav">
+            <div class="logo">
+                <h1>🤝 Tontine<span>Pro</span></h1>
+            </div>
+            <div class="cta-buttons">
+                <a href="pages/auth/login.html" class="btn btn-outline">Se connecter</a>
+                <a href="pages/auth/register.html" class="btn btn-primary">S'inscrire</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="landing-hero">
+        <h1 class="hero-title">Gérez vos tontines en toute simplicité</h1>
+        <p class="hero-subtitle">La plateforme qui révolutionne l'épargne collective en Afrique</p>
+        <div class="cta-buttons">
+            <a href="pages/auth/register.html" class="btn btn-primary btn-large">Commencer gratuitement</a>
+            <a href="#features" class="btn btn-outline">En savoir plus</a>
+        </div>
+    </main>
+
+    <script src="js/utils.js"></script>
 </body>
 </html>
